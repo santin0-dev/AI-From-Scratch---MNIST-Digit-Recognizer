@@ -101,6 +101,7 @@ and how to debug an inactive ReLU layer.
 **Numerical stability:** I subtracted the largest score before calculating softmax exponentials to prevent overflow. I clipped probabilities before taking logarithms to avoid log(0).
 
 **Debugging with measurements:** I inspected gradient sizes, the learning rate, and the fraction of positive hidden activations to investigate stalled learning.
+I accidentally passed non normalized data into my network and wondered why it was not learning, I tried checking everything in my helper functions down to the variables in test and weights, turns out, the normalization of inputs was just commented out. 
 
 **Reproducible initialization:** I used a random seed so I could reproduce the same initial weights.
 
